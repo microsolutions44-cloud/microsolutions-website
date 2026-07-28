@@ -105,6 +105,11 @@
       justify-content: center;
       gap: 8px;
       min-height: 44px; /* Optimal touch size */
+      border: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
     }
 
     .cta-btn:hover {
@@ -400,6 +405,103 @@
       margin-bottom: 25px;
     }
 
+    /* Quote Request Section */
+    .quote-section {
+      background-color: var(--bg-white);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .quote-container {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .quote-form-card {
+      background-color: var(--bg-light-gray);
+      padding: 35px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      background-color: var(--bg-white);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-red);
+      box-shadow: 0 0 0 3px rgba(255, 77, 66, 0.15);
+    }
+
+    .form-submit {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .submit-btn {
+      width: 100%;
+      max-width: 320px;
+      padding: 14px 20px;
+      font-size: 1rem;
+    }
+
+    .form-status {
+      margin-top: 20px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .form-status.success {
+      background-color: #E7F4E8;
+      color: #1E4620;
+      border: 1px solid #C3E6C5;
+    }
+
+    .form-status.error {
+      background-color: #FDF2F2;
+      color: #9B1C1C;
+      border: 1px solid #FBD5D5;
+    }
+
     /* Value & Features Section */
     .features-container {
       max-width: 1200px;
@@ -612,6 +714,18 @@
         gap: 12px;
       }
 
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+
+      .quote-form-card {
+        padding: 22px 16px;
+      }
+
       /* Show sticky bottom button for quick calls on smartphones */
       .mobile-call-bar {
         display: flex;
@@ -658,6 +772,7 @@
       <nav class="nav-links">
         <a href="#services">Services</a>
         <a href="#issues">Problems We Fix</a>
+        <a href="#quote">Get a Quote</a>
         <a href="#why-us">Why Choose Us</a>
         <a href="#location">Location</a>
         <a href="tel:5719700839" class="cta-btn"><i class="fa-solid fa-phone"></i> (571) 970-0839</a>
@@ -674,8 +789,8 @@
       <h1>Expert Repair for Phones, Laptops & <span>Electronics</span></h1>
       <p>Fast, honest, and affordable device repairs in Arlington, VA. Most iPhone screen and battery replacements are done in <strong>just 30 minutes!</strong></p>
       <div class="hero-buttons">
-        <a href="tel:5719700839" class="cta-btn"><i class="fa-solid fa-phone"></i> Call (571) 970-0839</a>
-        <a href="#location" class="btn-secondary"><i class="fa-solid fa-location-dot"></i> Visit Our Shop</a>
+        <a href="#quote" class="cta-btn"><i class="fa-solid fa-calculator"></i> Get a Free Quote</a>
+        <a href="tel:5719700839" class="btn-secondary"><i class="fa-solid fa-phone"></i> Call (571) 970-0839</a>
       </div>
     </div>
   </section>
@@ -851,6 +966,104 @@
     </div>
   </section>
 
+  <!-- Request a Free Quote Section (Formspree Integration) -->
+  <section class="quote-section" id="quote">
+    <div class="quote-container">
+      <div class="section-title">
+        <h2>Request a Free Repair Estimate</h2>
+        <p>Fill out the form below and our team will respond quickly with an accurate estimate!</p>
+      </div>
+
+      <div class="quote-form-card">
+        <form id="quote-form" action="https://formspree.io/f/mvzelyvv" method="POST">
+          <div class="form-grid">
+            <!-- Device Type -->
+            <div class="form-group">
+              <label for="device-type">Device Type *</label>
+              <select id="device-type" name="Device Type" required>
+                <option value="" disabled selected>Select Device Type</option>
+                <option value="iPhone">iPhone</option>
+                <option value="Samsung">Samsung</option>
+                <option value="iPad">iPad</option>
+                <option value="Computer">Computer</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Brand -->
+            <div class="form-group">
+              <label for="brand">Brand *</label>
+              <select id="brand" name="Brand" required>
+                <option value="" disabled selected>Select Brand</option>
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Google">Google</option>
+                <option value="Motorola">Motorola</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Device Model -->
+            <div class="form-group">
+              <label for="device-model">Device Model *</label>
+              <input type="text" id="device-model" name="Device Model" placeholder="e.g. iPhone 13 Pro, Galaxy S22" required>
+            </div>
+
+            <!-- Repair Issue -->
+            <div class="form-group">
+              <label for="repair-issue">Repair Issue *</label>
+              <select id="repair-issue" name="Repair Issue" required>
+                <option value="" disabled selected>Select Repair Issue</option>
+                <option value="Broken screen">Broken screen</option>
+                <option value="Battery replacement">Battery replacement</option>
+                <option value="Charging port issue">Charging port issue</option>
+                <option value="Camera problem">Camera problem</option>
+                <option value="Water damage">Water damage</option>
+                <option value="Back glass damage">Back glass damage</option>
+                <option value="Software issue">Software issue</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Conditional Describe Issue Area -->
+            <div class="form-group full-width" id="other-issue-container" style="display: none;">
+              <label for="other-issue-desc">Describe your issue *</label>
+              <textarea id="other-issue-desc" name="Issue Description" rows="3" placeholder="Please describe the issue in detail..."></textarea>
+            </div>
+
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="full-name">Full Name *</label>
+              <input type="text" id="full-name" name="Full Name" placeholder="John Doe" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="Phone Number" placeholder="(571) 000-0000" required>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group full-width">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="Email" placeholder="john@example.com" required>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-submit">
+            <button type="submit" class="cta-btn submit-btn" id="submit-btn">
+              <i class="fa-solid fa-paper-plane"></i> Submit Request
+            </button>
+          </div>
+
+          <!-- Success / Error Status Display -->
+          <div id="form-status" class="form-status" style="display: none;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- Why Choose Us / Value Proposition Section -->
   <section id="why-us">
     <div class="section-title">
@@ -930,6 +1143,77 @@
   <footer>
     <p>&copy; MicroSolutions Phone Repair. All Rights Reserved. | 3621 Columbia Pike, Arlington, VA 22204</p>
   </footer>
+
+  <!-- JavaScript for Conditional Form Logic & Formspree AJAX Submission -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const repairIssueSelect = document.getElementById('repair-issue');
+      const otherIssueContainer = document.getElementById('other-issue-container');
+      const otherIssueInput = document.getElementById('other-issue-desc');
+      const form = document.getElementById('quote-form');
+      const status = document.getElementById('form-status');
+      const submitBtn = document.getElementById('submit-btn');
+
+      // 1. Toggle "Describe your issue" text area when "Other" is selected
+      repairIssueSelect.addEventListener('change', function() {
+        if (this.value === 'Other') {
+          otherIssueContainer.style.display = 'flex';
+          otherIssueInput.setAttribute('required', 'required');
+        } else {
+          otherIssueContainer.style.display = 'none';
+          otherIssueInput.removeAttribute('required');
+          otherIssueInput.value = '';
+        }
+      });
+
+      // 2. Formspree AJAX Form Submission
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // UI Feedback during submission
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+        status.style.display = 'none';
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+
+          if (response.ok) {
+            status.className = 'form-status success';
+            status.innerHTML = '<i class="fa-solid fa-circle-check"></i> Thank you! Your repair quote request has been submitted successfully. We will get back to you shortly.';
+            status.style.display = 'block';
+            form.reset();
+            otherIssueContainer.style.display = 'none';
+            otherIssueInput.removeAttribute('required');
+          } else {
+            const data = await response.json();
+            status.className = 'form-status error';
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+            } else {
+              status.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Oops! There was a problem submitting your request. Please give us a call at (571) 970-0839.';
+            }
+            status.style.display = 'block';
+          }
+        } catch (error) {
+          status.className = 'form-status error';
+          status.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Oops! Network error. Please check your connection or call us at (571) 970-0839.';
+          status.style.display = 'block';
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Submit Request';
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
