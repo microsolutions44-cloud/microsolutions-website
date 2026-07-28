@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MicroSolutions Phone Repair | Arlington, VA</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* CSS Variables matching logo red (#FF4D42) */
+    :root {
+      --primary-red: #FF4D42;
+      --primary-red-hover: #E03E34;
+      --bg-white: #FFFFFF;
+      --bg-light-gray: #F9F9F9;
+      --text-dark: #222222;
+      --text-muted: #666666;
+      --border-color: #EAEAEA;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--bg-white);
+      line-height: 1.6;
+    }
+
+    /* Header / Navigation */
+    header {
+      background-color: var(--bg-white);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 65px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-red);
+    }
+
+    .cta-btn {
+      background-color: var(--primary-red);
+      color: white !important;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease !important;
+    }
+
+    .cta-btn:hover {
+      background-color: var(--primary-red-hover) !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 20px;
+      background-color: var(--bg-white);
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--text-dark);
+    }
+
+    .hero h1 span {
+      color: var(--primary-red);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--primary-red);
+      color: var(--primary-red);
+      padding: 10px 22px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--primary-red);
+      color: white;
+    }
+
+    /* Info Bar (Phone & Location highlight) */
+    .info-bar {
+      background-color: var(--bg-light-gray);
+      padding: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .info-bar-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .info-item i {
+      color: var(--primary-red);
+      font-size: 1.4rem;
+    }
+
+    .info-item a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .info-item a:hover {
+      color: var(--primary-red);
+    }
+
+    /* Services Section */
+    .services {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--text-dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      display: block;
+      width: 50%;
+      height: 3px;
+      background-color: var(--primary-red);
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-top: 4px solid var(--primary-red);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--primary-red);
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    .service-card ul {
+      list-style: none;
+    }
+
+    .service-card ul li {
+      margin-bottom: 10px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-card ul li i {
+      color: var(--primary-red);
+      font-size: 0.8rem;
+    }
+
+    /* Extra Banner Section */
+    .extra-banner {
+      background-color: var(--bg-light-gray);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .extra-banner-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .extra-banner h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: var(--text-dark);
+    }
+
+    .extra-banner p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    /* Location & Hours */
+    .location-section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .location-details h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .location-details p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .location-details p i {
+      color: var(--primary-red);
+      font-size: 1.2rem;
+      width: 20px;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 350px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--text-dark);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <div class="logo-container">
+        <img src="logo1.png" alt="MicroSolutions Phone Repair Logo">
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#location">Location</a>
+        <a href="tel:5719700839" class="cta-btn"><i class="fa-solid fa-phone"></i> (571) 970-0839</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Fast, Reliable <span>Electronics Repair</span></h1>
+      <p>Your local repair specialists in Arlington, VA for smartphones, laptops, tablets, and custom electronics.</p>
+      <div class="hero-buttons">
+        <a href="tel:5719700839" class="cta-btn"><i class="fa-solid fa-phone"></i> Call for a Quote</a>
+        <a href="#location" class="btn-secondary"><i class="fa-solid fa-location-dot"></i> Get Directions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Bar -->
+  <div class="info-bar">
+    <div class="info-bar-container">
+      <div class="info-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>3621 Columbia Pike, Arlington, VA 22204</span>
+      </div>
+      <div class="info-item">
+        <i class="fa-solid fa-phone"></i>
+        <a href="tel:5719700839">(571) 970-0839</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="section-title">
+      <h2>Our Services</h2>
+    </div>
+
+    <div class="services-grid">
+      <!-- Smartphones -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+        <h3>Phone Repairs</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle-check"></i> Screen Replacements</li>
+          <li><i class="fa-solid fa-circle-check"></i> Battery Replacement</li>
+          <li><i class="fa-solid fa-circle-check"></i> Back Cover / Glass Repair</li>
+          <li><i class="fa-solid fa-circle-check"></i> Charging Port Repair</li>
+          <li><i class="fa-solid fa-circle-check"></i> Camera Repair</li>
+          <li><i class="fa-solid fa-circle-check"></i> Water Damage Diagnostics</li>
+        </ul>
+      </div>
+
+      <!-- Laptops -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-laptop"></i>
+        </div>
+        <h3>Laptop Repairs</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle-check"></i> Screen Replacement</li>
+          <li><i class="fa-solid fa-circle-check"></i> Battery Replacement</li>
+          <li><i class="fa-solid fa-circle-check"></i> Charging Port Repair</li>
+          <li><i class="fa-solid fa-circle-check"></i> Water Damage Diagnostics</li>
+          <li><i class="fa-solid fa-circle-check"></i> Hardware Issues</li>
+        </ul>
+      </div>
+
+      <!-- Tablets -->
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-tablet-screen-button"></i>
+        </div>
+        <h3>Tablet Repairs</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle-check"></i> Screen & Glass Repair</li>
+          <li><i class="fa-solid fa-circle-check"></i> Battery Replacement</li>
+          <li><i class="fa-solid fa-circle-check"></i> Charging Port Fixes</li>
+          <li><i class="fa-solid fa-circle-check"></i> Camera Repairs</li>
+          <li><i class="fa-solid fa-circle-check"></i> Water Damage Treatment</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Extra Electronics Section -->
+  <section class="extra-banner">
+    <div class="extra-banner-container">
+      <i class="fa-solid fa-screwdriver-wrench" style="font-size: 2.5rem; color: var(--primary-red); margin-bottom: 15px;"></i>
+      <h3>Have a Different Device?</h3>
+      <p>We work on various other electronics depending on the specific issue. Bring your device in or call us—<strong>we can always give it a try!</strong></p>
+      <a href="tel:5719700839" class="cta-btn">Ask About Your Device</a>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section class="location-section" id="location">
+    <div class="location-grid">
+      <div class="location-details">
+        <h3>Visit Our Store</h3>
+        <p><i class="fa-solid fa-shop"></i> <strong>MicroSolutions Phone Repair</strong></p>
+        <p><i class="fa-solid fa-location-dot"></i> 3621 Columbia Pike, Arlington, VA 22204</p>
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:5719700839">(571) 970-0839</a></p>
+        <p><i class="fa-solid fa-clock"></i> Stop by today or call us for quick repair estimates!</p>
+      </div>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.635805565019!2d-77.10098052342898!3d38.86371237173167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b6e3f5fb4799%3A0x6a3bc220f7724a87!2s3621%20Columbia%20Pike%2C%20Arlington%2C%20VA%2022204!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; MicroSolutions Phone Repair. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
