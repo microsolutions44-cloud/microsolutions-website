@@ -101,7 +101,9 @@
   <!-- Google Fonts & Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -164,10 +166,67 @@
       align-items: center;
     }
 
-    .logo-container img {
-      max-height: 60px;
+    /* Brand lockup: icon + real text (readable at any size) */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--primary-red);
+    }
+
+    .brand-icon {
+      height: 70px;
       width: auto;
       display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Noto Serif', Georgia, 'Times New Roman', serif;
+      text-transform: uppercase;
+      line-height: 1.1;
+      padding-top: 6px;
+      border-top: 2px solid var(--primary-red);
+    }
+
+    .brand-top {
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-bottom {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    /* Mid-size desktops: keep logo large but let the nav breathe */
+    @media (max-width: 1199px) {
+      .nav-links { gap: 10px; }
+      .nav-links a { font-size: 0.82rem; white-space: nowrap; }
+      .nav-links .cta-btn { padding: 8px 14px; }
+      .brand { gap: 10px; }
+      .brand-icon { height: 52px; }
+      .brand-top, .brand-bottom { font-size: 1rem; }
+    }
+
+    /* Small tablets: logo on top, links centered below */
+    @media (min-width: 769px) and (max-width: 1140px) {
+      .nav-container { flex-wrap: wrap; justify-content: center; gap: 10px; }
+      .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; }
+      .brand-icon { height: 58px; }
+      .brand-top, .brand-bottom { font-size: 1.15rem; }
+    }
+
+    .footer-logo {
+      display: block;
+      width: 240px;
+      max-width: 70%;
+      height: auto;
+      margin: 0 auto 16px;
     }
 
     .nav-links {
@@ -929,6 +988,15 @@
         font-size: 0.88rem;
       }
 
+      .brand-icon {
+        height: 58px;
+      }
+
+      .brand-top,
+      .brand-bottom {
+        font-size: 1.15rem;
+      }
+
       .nav-links .cta-btn {
         width: 100%;
       }
@@ -996,7 +1064,13 @@
   <header>
     <div class="nav-container">
       <div class="logo-container">
-        <a href="/" aria-label="MicroSolutions Phone Repair home"><img src="logo1.png" alt="MicroSolutions Phone Repair logo - phone repair in Arlington, VA" height="60"></a>
+        <a href="/" class="brand" aria-label="MicroSolutions Phone Repair home">
+          <img src="logo-icon.png" alt="" class="brand-icon" width="47" height="58">
+          <span class="brand-text">
+            <span class="brand-top">MicroSolutions</span>
+            <span class="brand-bottom">Phone Repair</span>
+          </span>
+        </a>
       </div>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#services">Services</a>
@@ -1438,6 +1512,7 @@
 
   <!-- Footer -->
   <footer>
+    <img src="logo-full.png" alt="MicroSolutions Phone Repair logo" class="footer-logo" width="240" height="123" loading="lazy">
     <p class="footer-areas">Phone repair, iPhone screen replacement, battery replacement, laptop repair and used phones for sale serving Arlington, Alexandria, Falls Church, Fairfax and Washington, DC.</p>
     <p>&copy; MicroSolutions Phone Repair. All Rights Reserved. | <a href="tel:5719700839">(571) 970-0839</a> | 3621 Columbia Pike, Arlington, VA 22204</p>
   </footer>
